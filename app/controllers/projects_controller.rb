@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # filled by karen
+    @project = Project.find(params[:id])
   end
 
   def new
