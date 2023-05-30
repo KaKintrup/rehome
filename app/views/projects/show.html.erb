@@ -1,0 +1,28 @@
+<!-- headline for the project with the description - better would be a title -->
+
+<h1><%= @project.description %></h1>
+
+<!-- display all the information about a specific project on the page -->
+<div>
+  <%= @project.room %>
+  <%= @project.location %>
+  <%= @project.budget %>
+  <%= @project.time_frame %>
+  <%= @project.sustainability %>
+  <%= image_tag @project.img_url, alt: @project.room %>
+</div>
+
+<!-- button for link back to all projects -->
+<p><%= link_to "See all projects", projects_path %></p>
+
+<!-- still missing: button for making an offer to the project (action to create an offer) -->
+<!-- <p><%= link_to "Make an offer to the project", # path to the edit page # %></p> --> 
+
+<!-- still missing: button for editing the project -->
+
+<!-- still missing: button for deleting the project -->
+
+
+
+
+
