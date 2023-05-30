@@ -1,0 +1,24 @@
+<!-- headline for the project with the description - better would be a title -->
+
+<h1><%= @project.description %></h1>
+
+<!-- display all the information about a specific project on the page -->
+
+<p><%= @project.room %></p>
+<p><%= @project.location %></p>
+<p><%= @project.budget %></p>
+<p><%= @project.time_frame %></p>
+<p><%= @project.sustainability %></p>
+<p><%= image_tag project.img_url, alt: project.room %></p>
+
+
+<!-- button for link back to all projects -->
+<p><%= link_to "See all projects", projects_path %></p>
+
+<!--button for making an offer to the project (project-edit-action) -->
+<p><%= link_to "Make an offer to the project", # path to the edit page # %></p>
+
+
+
+
+
