@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Projects.all
+    @projects = Project.all
   end
-  
+
   def show
     @project = Project.find(params[:id])
   end
@@ -18,10 +18,10 @@ class ProjectsController < ApplicationController
     @project.save
     redirect_to projects_path
   end
- 
- private
+
+  private
 
   def project_params
-    params.require(:project).permit([:room, :location, :budeget, :time_frame, :sustainability, :description, :img_url])
-   end
- end
+    params.require(:project).permit([:room, :location, :budget, :time_frame, :sustainability, :description, :img_url])
+  end
+end
