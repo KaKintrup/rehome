@@ -4,12 +4,11 @@
   <% @projects.each do |project|%>
   <li><%= project.room%></li>
   <li><%= project.location%></li>
-  <li><%=project.budget%></li>
+  <li><%= project.budget%></li>
   <li><%= project.time_frame%></li>
   <li><%= project.sustainability%></li>
   <li><%= project.description%></li>
   <li><%= image_tag project.img_url %></li>
-  <li>
   <%= link_to "See project details", project_path(project)%>
   <% end %>
 </ul>
