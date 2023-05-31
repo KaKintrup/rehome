@@ -15,8 +15,11 @@ class ProjectsController < ApplicationController
     @user = current_user
     @project = Project.new(project_params)
     @project.user = @user
-    @project.save
-    redirect_to projects_path
+    if @project.save
+      redirect_to projects_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -38,6 +41,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit([:room, :location, :budget, :time_frame, :sustainability, :description, :img_url])
+    params.require(:project).permit([:room, :address, :budget, :time_frame, :sustainability, :description, :img_url])
   end
 end

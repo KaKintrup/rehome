@@ -1,11 +1,15 @@
-<h1>This is the page where you can edit your form</h1>
-<%= simple_form_for(@project) do |f| %>
-  <%= f.input :room %>
-  <%= f.input :location %>
-  <%= f.input :budget, label: "Budget in €" %>
-  <%= f.input :time_frame, label: "Max. Duration in weeks" %>
-  <%= f.input :sustainability %>
-  <%= f.input :description %>
-  <%= f.input :img_url %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+
+  <h1>This is the page where you can edit your form</h1>
+  <%= simple_form_for(@project) do |f| %>
+    <%= f.input :room %>
+    <%= f.input :address %>
+    <%= f.input :budget, label: "Budget in €" %>
+    <%= f.input :time_frame, label: "Max. Duration in weeks" %>
+    <%= f.input :sustainability %>
+    <%= f.input :description %>
+    <%= f.input :img_url %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
