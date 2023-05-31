@@ -15,8 +15,11 @@ class ProjectsController < ApplicationController
     @user = current_user
     @project = Project.new(project_params)
     @project.user = @user
-    @project.save
-    redirect_to projects_path
+    if @project.save
+      redirect_to projects_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit

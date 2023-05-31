@@ -1,29 +1,31 @@
 <div class="container">
 
-  <!-- headline for the project with the description - better would be a title -->
-
   <h1><%= @project.description %></h1>
+  
+<!-- display all the information about a specific project on the page -->
+<div>
+  <%= @project.room %>
+  <%= @project.address %>
+  <%= @project.budget %>
+  <%= @project.time_frame %>
+  <%= @project.sustainability %>
+  <%= image_tag @project.img_url, alt: @project.room %>
+  <p><strong>Offers</strong></p>
+  <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
 
-  <!-- display all the information about a specific project on the page -->
-  <div>
-    <%= @project.room %>
-    <%= @project.address %>
-    <%= @project.budget %>
-    <%= @project.time_frame %>
-    <%= @project.sustainability %>
-    <%= image_tag @project.img_url, alt: @project.room %>
-    <p><%= link_to "Delete", project_path(@project),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
-    <p><%= link_to "Update project",  edit_project_path %></p>
-  </div>
+<ul class="list-group">
+  <% @project.offers.each do |offer| %>
+    <li class="list-group-item"><%= offer.comment %></li>
 
-  <!-- button for link back to all projects -->
-  <p><%= link_to "See all projects", projects_path %></p>
+     <p><%= link_to "Delete offer", offer_path(offer),
+       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
 
-  <!-- still missing: button for making an offer to the project (action to create an offer) -->
-
-  <!-- still missing: button for editing the project -->
-
-  <!-- still missing: button for deleting the project -->
+  <% end %>
+</ul>
+<br>
+  <p><%= link_to "Delete project", project_path(@project),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+  <p><%= link_to "Update project",  edit_project_path(@project) %></p>
+</div>
 
 </div>
