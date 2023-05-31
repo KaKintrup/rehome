@@ -2,18 +2,21 @@
 
   <h1> Projects Overview</h1>
 
-  <ul>
+<div class="row">
     <% @projects.each do |project|%>
-    <li><%= project.room%></li>
-    <li><%= project.address%></li>
-    <li><%= project.budget%></li>
-    <li><%= project.time_frame%></li>
-    <li><%= project.sustainability%></li>
-    <li><%= project.description%></li>
-    <li><%= image_tag project.img_url %></li>
-    <%= link_to "See project details", project_path(project)%>
+      <div class="card col-6 m-4" style="width: 18rem;">
+        <img src=<%= project.img_url %>% class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= project.description %> </h5>
+          <p class="card-text"> <%=project.address%> </p>
+          <p class="card-text"> <%=project.time_frame%> weeks </p>
+          <p class="btn btn-success text-muted"><%= link_to "See project details", project_path(project.id) %></p>
+        </div>
+      </div>
     <% end %>
-    <%= link_to "Create a new project", new_project_path %>
-  </ul>
+    <p class="btn btn-success"> <%= link_to "Create a new project", new_project_path %> </p>
+</div>
 
 </div>
+
+
