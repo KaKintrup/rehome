@@ -41,6 +41,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit([:room, :location, :budget, :time_frame, :sustainability, :description, :img_url])
+    params.require(:project).permit([:room, :address, :budget, :time_frame, :sustainability, :description, :img_url])
   end
 end

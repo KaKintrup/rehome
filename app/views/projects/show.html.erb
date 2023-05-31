@@ -1,11 +1,11 @@
-<!-- headline for the project with the description - better would be a title -->
+<div class="container">
 
-<h1><%= @project.description %></h1>
-
+  <h1><%= @project.description %></h1>
+  
 <!-- display all the information about a specific project on the page -->
 <div>
   <%= @project.room %>
-  <%= @project.location %>
+  <%= @project.address %>
   <%= @project.budget %>
   <%= @project.time_frame %>
   <%= @project.sustainability %>
@@ -28,11 +28,4 @@
   <p><%= link_to "Update project",  edit_project_path(@project) %></p>
 </div>
 
-<!-- button for link back to all projects -->
-<p><%= link_to "See all projects", projects_path %></p>
-
-<!-- still missing: button for making an offer to the project (action to create an offer) -->
-
-<!-- still missing: button for editing the project -->
-
-<!-- still missing: button for deleting the project -->
+</div>
