@@ -10,9 +10,22 @@
   <%= @project.time_frame %>
   <%= @project.sustainability %>
   <%= image_tag @project.img_url, alt: @project.room %>
-  <p><%= link_to "Delete", project_path(@project),
+  <p><strong>Offers</strong></p>
+  <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+
+<ul class="list-group">
+  <% @project.offers.each do |offer| %>
+    <li class="list-group-item"><%= offer.comment %></li>
+
+     <p><%= link_to "Delete offer", offer_path(offer),
+       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+
+  <% end %>
+</ul>
+<br>
+  <p><%= link_to "Delete project", project_path(@project),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
-  <p><%= link_to "Update project",  edit_project_path %></p>
+  <p><%= link_to "Update project",  edit_project_path(@project) %></p>
 </div>
 
 <!-- button for link back to all projects -->

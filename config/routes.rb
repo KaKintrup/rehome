@@ -5,5 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :projects
+  resources :projects do
+    resources :offers, except: [:destroy]
+  end
+  resources :offers, only: [:destroy]
 end
