@@ -2,30 +2,37 @@
 
   <h1><%= @project.description %></h1>
   
-<!-- display all the information about a specific project on the page -->
-<div>
-  <%= @project.room %>
-  <%= @project.address %>
-  <%= @project.budget %>
-  <%= @project.time_frame %>
-  <%= @project.sustainability %>
-  <%= image_tag @project.img_url, alt: @project.room %>
-  <p><strong>Offers</strong></p>
-  <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+  <!-- display all the information about a specific project on the page -->
+  <div>
+    <div class="card mb-3">
+      <img src=<%= @project.img_url %> class="card-img-top" height=300px alt="...">
+      <div class="card-body">
+        <p class="card-text"> <strong> Project details </strong> </p>
+        <p class="card-text"><%= @project.room %></p>
+        <p class="card-text"><%= @project.address %></p>
+        <p class="card-text"><%= @project.budget %></p>
+        <p class="card-text"><%= @project.time_frame %></p>
+        <p class="card-text"><%= @project.sustainability %></p>
+        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --> 
+      </div>
+    </div>
 
-<ul class="list-group">
-  <% @project.offers.each do |offer| %>
-    <li class="list-group-item"><%= offer.comment %></li>
+    <p><strong>Offers</strong></p>
+    <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
 
-     <p><%= link_to "Delete offer", offer_path(offer),
-       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+  <ul class="list-group">
+    <% @project.offers.each do |offer| %>
+      <li class="list-group-item"><%= offer.comment %></li>
 
-  <% end %>
-</ul>
-<br>
-  <p><%= link_to "Delete project", project_path(@project),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
-  <p><%= link_to "Update project",  edit_project_path(@project) %></p>
-</div>
+      <p><%= link_to "Delete offer", offer_path(offer),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+
+    <% end %>
+  </ul>
+  <br>
+    <p class="btn btn-success"><%= link_to "Delete project", project_path(@project),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+    <p class="btn btn-success"><%= link_to "Update project",  edit_project_path(@project) %></p>
+  </div>
 
 </div>
