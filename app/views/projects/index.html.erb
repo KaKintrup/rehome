@@ -1,5 +1,5 @@
 <h1> Projects Overview</h1>
-
+<div class="cards-container">
 <ul>
   <% @projects.each do |project|%>
   <li><%= project.room%></li>
@@ -13,3 +13,76 @@
   <% end %>
   <%= link_to "Create a new project", new_project_path %>
 </ul>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReHome</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to ReHome</h1>
+            <p>Housing improvement matchmaking platform. Find unique solutions to you redesigning your home</p>
+            <a href="..." class="btn btn-success">Create an Account</a>
+        </div>
+    </section>
+<div class="cards-container">
+<!-- Cards -->
+  <div class="cards">
+  <div class="card" style="background-image: url(https://www.pexels.com/photo/white-ceramic-bathtub-near-white-ceramic-bathtub-3288104/)">
+      Bathroom
+    </div>
+    <!-- Search Section -->
+    <section id="search">
+        <div class="search-form">
+            <h2>Create Your Project</h2>
+            <form>
+                <input type="text" placeholder="Type of room">
+                <input type="place" placeholder="Location">
+                <input type="number" placeholder="Budget">
+                <input type="sustainability" placeholder="Sustainabilty">
+                <a href="..." class="btn btn-primary">Create a project</a>
+            </form>
+        </div>
+    </section>
+
+    <!-- Listings Section -->
+    <section id="listings">
+        <h2>Featured Listings</h2>
+        <div class="listing-card">
+            <img src="" alt="Listing 1">
+            <h3>Kitchen redesign</h3>
+            <p>Looking for redesigning my kitchen</p>
+            <a href="#">View Details</a>
+        </div>
+        <div class="listing-card">
+            <img src="https://www.pexels.com/photo/white-ceramic-bathtub-near-white-ceramic-bathtub-3288104/" alt="Listing 2" class="rounded">
+            <h3>Upgading my bathroom</h3>
+            <p>I need to change the floor and add new tiles in my bathroom</p>
+            <a href="#">View Details</a>
+        </div>
+        <!-- Add more listing cards here -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>2023 Rehome Website. All rights reserved</p>
+    </footer>
+</body>
+</div>
+</html>
