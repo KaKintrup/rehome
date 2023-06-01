@@ -1,3 +1,4 @@
 <h2><%= project.title %></h2>
 <p><%= project.address %></p>
 <p><%= image_tag "#{project.img_url}", width: 160 %></p>
+<div class="btn btn-success"><%= link_to "See details", project_path(project)  %></div>
