@@ -4,6 +4,13 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
+  def edit
+    @offer = Offer.find(params[:project_id])
+    @offer.offer_status = true
+    @offer.save
+    redirect_to project_path(@offer.project)
+  end
+
   def create
     @project = Project.find(params[:project_id])
     @offer = Offer.new(offer_params)
