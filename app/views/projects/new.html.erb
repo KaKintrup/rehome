@@ -3,12 +3,13 @@
   <h1>New project</h1>
   <h2>Tell us about your dream project</h2>
   <%= simple_form_for(@project) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
     <%= f.input :room %>
     <%= f.input :address %>
     <%= f.input :budget, label: "Budget in €" %>
     <%= f.input :time_frame, label: "Max. Duration in weeks" %>
     <%= f.input :sustainability %>
-    <%= f.input :description %>
     <%= f.input :img_url %>
     <%= f.submit %>
   <% end %>

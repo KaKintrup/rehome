@@ -1,19 +1,21 @@
 <div class="container">
 
-  <h1><%= @project.description %></h1>
 
+  <h1><%= @project.title %></h1>
+  
   <!-- display all the information about a specific project on the page -->
   <div>
     <div class="card mb-3">
-      <img src=<%= @project.img_url %> class="card-img-top" height=300px alt="...">
+      <img src=<%= @project.img_url %> class="card-img-top" height=300px alt="<%= @project.room %>">
       <div class="card-body">
         <p class="card-text"> <strong> Project details </strong> </p>
+        <p class="card-text"><%= @project.description %></p>
         <p class="card-text"><%= @project.room %></p>
         <p class="card-text"><%= @project.address %></p>
-        <p class="card-text"><%= @project.budget %></p>
-        <p class="card-text"><%= @project.time_frame %></p>
-        <p class="card-text"><%= @project.sustainability %></p>
-        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        <p class="card-text"><%= @project.budget %> € </p>
+        <p class="card-text"><%= @project.time_frame %> weeks </p>
+        <p class="card-text"> Sustainability <%= @project.sustainability %></p>
+        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --> 
       </div>
     </div>
 
