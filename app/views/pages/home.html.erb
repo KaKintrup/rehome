@@ -3,6 +3,21 @@
   <h1>Welcome to ReHome</h1>
   <p>Here you find help with any of your home projects!</p>
 
+  <div class="row">
+    <% @projects.each do |project|%>
+      <div class="card col-6 m-4" style="width: 18rem;">
+        <img src=<%= project.img_url %>% class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= project.title %> </h5>
+          <p class="card-text"> <%=project.address%> </p>
+          <p class="card-text"> <%=project.time_frame%> weeks </p>
+          <p class="btn btn-success text-muted"><%= link_to "See project details", project_path(project.id) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
   <div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
