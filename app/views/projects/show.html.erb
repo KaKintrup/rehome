@@ -2,22 +2,23 @@
 
   <h1><%= @project.title %></h1>
 
-  <!-- display all the information about a specific project on the page -->
-  <div>
-    <div class="card mb-3">
-      <img src=<%= @project.img_url %> class="card-img-top" height=300px alt="<%= @project.room %>">
-      <div class="card-body">
-        <p class="card-text"> <strong> Project details </strong> </p>
-        <p class="card-text"><%= @project.description %></p>
-        <p class="card-text"><%= @project.room %></p>
-        <p class="card-text"><%= @project.address %></p>
-        <p class="card-text"><%= @project.budget %> € </p>
-        <p class="card-text"><%= @project.time_frame %> weeks </p>
-        <p class="card-text"> Sustainability <%= @project.sustainability %></p>
-        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-      </div>
-    </div>
+<!-- alterantive display of project -->
 
+<div class="card-project-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= "#{@project.img_url}" %>)">  
+</div>
+
+<div class="card-project-text">
+  
+  <p class="card-text"><%= @project.description %></p>
+  <p class="card-text"><%= @project.room %></p>
+  <p class="card-text"><%= @project.address %></p>
+  <p class="card-text"><%= @project.budget %> € </p>
+  <p class="card-text"><%= @project.time_frame %> weeks </p>
+  <p class="card-text"> Sustainability <%= @project.sustainability %></p>
+</div>
+
+
+<!-- display all the information about offers --> 
 
 <% chosen = @project.offers.any? { |offer| offer.offer_status == true } %>
 
@@ -46,8 +47,6 @@
     <% end %>
   </ul>
 <% end %>
-
-
 
 
 
