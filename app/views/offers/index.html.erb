@@ -5,6 +5,8 @@
 <div class="row">
     <% @offers.each do |offer|%>
       <div class="card col-6 m-4" style="width: 18rem;">
+          <p class="card-text"> <%=offer.name%> </p>
+          <p class="card-text"> <%=offer.email%> </p>
           <p class="card-text"> <%=offer.comment%> </p>
           <% if offer.offer_status %>
             <p class="card-text">Offer accepted</p>
