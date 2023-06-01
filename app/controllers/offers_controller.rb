@@ -19,7 +19,7 @@ class OffersController < ApplicationController
     @project = Project.find(params[:project_id])
     @offer = Offer.new(offer_params)
     @offer.project = @project
-    @offer.user_id = @project.user_id
+    @offer.user = current_user
     if @offer.save
       redirect_to project_path(@project)
     else

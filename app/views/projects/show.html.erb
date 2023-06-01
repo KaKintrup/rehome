@@ -29,6 +29,9 @@
         <li class="list-group-item">
         <%= offer.name %>
         <%= offer.comment %>
+        <% if @project.user == current_user %>
+          <%= offer.email %>#
+        <% end %>
 
           <% if @project.user == current_user %>
 
