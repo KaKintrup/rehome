@@ -18,18 +18,39 @@
       </div>
     </div>
 
-    <p><strong>Offers</strong></p>
-    <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+
+<% chosen = @project.offers.any? { |offer| offer.offer_status == true } %>
+
+<% if chosen %>
+  <ul class="list-group">
+    <% @project.offers.each do |offer| %>
+      <% if offer.offer_status == true %>
+        <li class="list-group-item"><%= offer.comment %>
+          <%= link_to "Choose diffrent Offer", offer_path(offer),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+  <p><strong>Offers</strong></p>
+  <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
 
   <ul class="list-group">
     <% @project.offers.each do |offer| %>
-      <li class="list-group-item"><%= offer.comment %></li>
-      <p><%= link_to "Accept offer",  edit_project_offer_path(offer)%> </p>
-      <p><%= link_to "Delete offer", offer_path(offer),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
-
+      <li class="list-group-item"><%= offer.comment %>
+        <%= link_to "Accept Offer", edit_project_offer_path(offer) %>
+        <%= link_to "Delete Offer", offer_path(offer),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </li>
     <% end %>
   </ul>
+<% end %>
+
+
+
+
+
   <br>
     <p class="btn btn-success"><%= link_to "Delete project", project_path(@project),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
