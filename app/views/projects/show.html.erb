@@ -25,9 +25,14 @@
   <ul class="list-group">
     <% @project.offers.each do |offer| %>
       <% if offer.offer_status == true %>
-        <li class="list-group-item"><%= offer.comment %>
-          <%= link_to "Choose diffrent Offer", offer_path(offer),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <li class="list-group-item">
+        <%= offer.comment %>
+
+          <% if @project.user == current_user %>
+
+          <p class="btn btn-success"> <%= link_to "Choose diffrent Offer", offer_path(offer),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+          <% end %>
         </li>
       <% end %>
     <% end %>
@@ -39,9 +44,17 @@
   <ul class="list-group">
     <% @project.offers.each do |offer| %>
       <li class="list-group-item"><%= offer.comment %>
-        <%= link_to "Accept Offer", edit_project_offer_path(offer) %>
-        <%= link_to "Delete Offer", offer_path(offer),
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+
+         <% if @project.user == current_user %>
+
+          <p class="btn btn-success"><%= link_to "Accept Offer", edit_project_offer_path(offer) %></p>
+          <% end %>
+
+          <% if @project.user == current_user %>
+          
+          <p class="btn btn-success"><%= link_to "Delete Offer", offer_path(offer),
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+          <% end %>
       </li>
     <% end %>
   </ul>
@@ -52,9 +65,24 @@
 
 
   <br>
-    <p class="btn btn-success"><%= link_to "Delete project", project_path(@project),
+
+
+ <% if @project.user == current_user %>
+<p class="btn btn-success"><%= link_to "Delete project", project_path(@project),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
-    <p class="btn btn-success"><%= link_to "Update project",  edit_project_path(@project) %></p>
+<% end %>
+
+ <% if @project.user == current_user %>
+<p class="btn btn-success"><%= link_to "Update project",  edit_project_path(@project) %></p>
+<% end %>
+
+
+
+
   </div>
+
+
+
+
 
 </div>
