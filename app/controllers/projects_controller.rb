@@ -35,7 +35,6 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    #raise
     redirect_to projects_path, status: :see_other
   end
 
