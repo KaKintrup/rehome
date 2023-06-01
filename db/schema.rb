@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_213425) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_085357) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "offers", force: :cascade do |t|
     t.string "comment"
-    t.boolean "offer_status"
+    t.boolean "offer_status", default: false
     t.bigint "project_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
