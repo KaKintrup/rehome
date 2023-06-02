@@ -66,7 +66,7 @@ Project.create(
 Project.create(
   title: "Home Office Design",
   room: "Office",
-  address: "Leopoldstraße 5",
+  address: "Zechstraße 5",
   budget: rand(1000..10000),
   time_frame: rand(3..16),
   sustainability: [true, false].sample,
