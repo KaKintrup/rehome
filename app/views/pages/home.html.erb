@@ -5,8 +5,8 @@
 
   <div class="row">
     <% @projects.each do |project|%>
-      <div class="card col-6 m-4" style="width: 18rem;">
-        <img src=<%= project.img_url %>% class="card-img-top" alt="...">
+      <div class="card col-6 m-4 rounded-4" style="width: 18rem;">
+        <img src=<%= project.img_url %>% class="card-img-top mt-3" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= project.title %> </h5>
           <p class="card-text"> <%=project.address%> </p>
