@@ -1,0 +1,29 @@
+.primary-button {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #995567;
+  text-align: center;
+  text-decoration: none;
+}
+
+.primary-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.secondary-button {
+  color: rgb(30, 30, 30);
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #81e6ab;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  
+}
+
+.secondary-button a {
+  text-decoration: none;
+  color: rgb(30, 30, 30);
+}
