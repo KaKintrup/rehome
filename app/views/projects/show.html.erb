@@ -2,8 +2,6 @@
 
   <h1><%= @project.title %></h1>
 
-<!-- alterantive display of project -->
-
 <div class="card-project">
   <div class="card-project-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= "#{@project.img_url}" %>)">  
   </div>
@@ -21,7 +19,7 @@
   </div>
 </div>
 
-<!-- display all the information about offers --> 
+
 
 <% chosen = @project.offers.any? { |offer| offer.offer_status == true } %>
 
@@ -30,7 +28,11 @@
     <% @project.offers.each do |offer| %>
       <% if offer.offer_status == true %>
         <li class="list-group-item">
+        <%= offer.name %>
         <%= offer.comment %>
+        <% if @project.user == current_user %>
+          <%= offer.email %>#
+        <% end %>
 
           <% if @project.user == current_user %>
 
@@ -42,21 +44,27 @@
     <% end %>
   </ul>
 <% else %>
+  
 
-  <p><strong>Offers</strong></p>
-  <p class="btn btn-success"><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+    <% if @project.user == current_user %>
+    <p><strong>Current Offers</strong></p>
+    <% else %>
+          <p><strong>Offers</strong></p>
+          <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+    <% end %>
+
 
   <ul class="list-group">
     <% @project.offers.each do |offer| %>
-      <li class="list-group-item"><%= offer.comment %>
+      <li class="list-group-item"><%= offer.name %>: <%= offer.comment %>
+         <% if @project.user == current_user %>
 
-        <% if @project.user == current_user %>
 
           <p class="btn btn-success"><%= link_to "Accept Offer", edit_project_offer_path(offer) %></p>
           <% end %>
 
           <% if @project.user == current_user %>
-          
+
           <p class="btn btn-success"><%= link_to "Delete Offer", offer_path(offer),
                     data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
           <% end %>
