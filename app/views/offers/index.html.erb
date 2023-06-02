@@ -4,7 +4,7 @@
   
   <div class="row">
     <% current_user.offers.each do |offer|%>
-      <div class="card col-6 m-4" style="width: 18rem;">
+      <div class="card col-6 m-4 rounded-4" style="width: 18rem;">
         <div class="card-body">
           <p class="card-title"> <%=offer.name%> </p>
           <p class="card-text"> <%=offer.email%> </p>
@@ -12,7 +12,7 @@
           <% if offer.offer_status %>
             <p class="card-text">Offer accepted</p>
           <% end %>
-          <p class="btn btn-success text-muted"><%= link_to "See project details", project_path(offer.project) %></p>
+          <p class="primary-button"><%= link_to "See project details", project_path(offer.project) %></p>
         </div >
       </div>
       <% end %>

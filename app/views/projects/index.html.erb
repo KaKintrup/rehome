@@ -4,19 +4,17 @@
 
   <div class="row">
       <% @projects.each do |project|%>
-        <div class="card col-6 m-4" style="width: 18rem;">
-          <img src=<%= project.img_url %>% class="card-img-top" alt="...">
+        <div class="card col-6 m-4 rounded-4" style="width: 18rem;">
+          <img src=<%= project.img_url %>% class="card-img-top mt-3" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%= project.title %> </h5>
             <p class="card-text"> <%=project.address%> </p>
             <p class="card-text"> <%=project.time_frame%> weeks </p>
-            <p class="btn btn-success text-muted"><%= link_to "See project details", project_path(project.id) %></p>
+            <p class="primary-button"><%= link_to "See project details", project_path(project.id) %></p>
           </div>
         </div>
       <% end %>
-      <p class="btn btn-success"> <%= link_to "Create a new project", new_project_path %> </p>
+      <p class="primary-button"> <%= link_to "Create a new project", new_project_path %> </p>
   </div>
 
 </div>
-
-

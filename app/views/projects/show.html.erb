@@ -36,7 +36,7 @@
 
           <% if @project.user == current_user %>
 
-          <p class="btn btn-success"> <%= link_to "Choose diffrent Offer", offer_path(offer),
+          <p class="primary-button"> <%= link_to "Choose different offer", offer_path(offer),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
           <% end %>
         </li>
@@ -44,29 +44,33 @@
     <% end %>
   </ul>
 <% else %>
+
+
+
+
   
 
     <% if @project.user == current_user %>
     <p><strong>Current Offers</strong></p>
     <% else %>
           <p><strong>Offers</strong></p>
-          <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+          <p class="secondary-button"><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
     <% end %>
 
 
   <ul class="list-group">
     <% @project.offers.each do |offer| %>
-      <li class="list-group-item"><%= offer.name %>: <%= offer.comment %>
-         <% if @project.user == current_user %>
+      <li class="list-group-item mb-4"><%= offer.name %>: <%= offer.comment %>
+        <% if @project.user == current_user %>
 
 
-          <p class="btn btn-success"><%= link_to "Accept Offer", edit_project_offer_path(offer) %></p>
+          <p class="secondary-button"><%= link_to "Accept Offer", edit_project_offer_path(offer) %></p>
           <% end %>
 
           <% if @project.user == current_user %>
 
-          <p class="btn btn-success"><%= link_to "Delete Offer", offer_path(offer),
-                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+          <p class="secondary-button"><%= link_to "Delete Offer", offer_path(offer),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
           <% end %>
       </li>
     <% end %>
@@ -75,13 +79,13 @@
 
   <br>
 
- <% if @project.user == current_user %>
-<p class="btn btn-success"><%= link_to "Delete project", project_path(@project),
+<% if @project.user == current_user %>
+<p class="primary-button"><%= link_to "Delete project", project_path(@project),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
 <% end %>
 
- <% if @project.user == current_user %>
-<p class="btn btn-success"><%= link_to "Update project",  edit_project_path(@project) %></p>
+<% if @project.user == current_user %>
+<p class="primary-button"><%= link_to "Update project",  edit_project_path(@project) %></p>
 <% end %>
 
 
