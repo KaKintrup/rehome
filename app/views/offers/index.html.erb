@@ -1,6 +1,7 @@
 <div class="container">
 
-  <h1> offers Overview</h1>
+  <h1> Offers Overview</h1>
+
 
 <div class="row">
     <% @offers.each do |offer|%>
@@ -12,9 +13,8 @@
             <p class="card-text">Offer accepted</p>
           <% end %>
           <p class="btn btn-success text-muted"><%= link_to "See project details", project_path(offer.project) %></p>
-        </div>
-      </div>
-    <% end %>
-</div>
+      <% end %>
+       </div>  
+  </div>
 
 </div>
