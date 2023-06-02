@@ -1,5 +1,7 @@
 <h1>New offer</h1>
 <%= simple_form_for [@project, @offer] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
   <%= f.input :comment %>
   <%= f.submit "Submit offer", class: "btn btn-primary" %>
 <% end %>
