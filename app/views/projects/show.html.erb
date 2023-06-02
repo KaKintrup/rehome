@@ -4,19 +4,22 @@
 
 <!-- alterantive display of project -->
 
-<div class="card-project-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= "#{@project.img_url}" %>)">  
-</div>
+<div class="card-project">
+  <div class="card-project-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= "#{@project.img_url}" %>)">  
+  </div>
 
-<div class="card-project-text">
-  
-  <p class="card-text"><%= @project.description %></p>
-  <p class="card-text"><%= @project.room %></p>
-  <p class="card-text"><%= @project.address %></p>
-  <p class="card-text"><%= @project.budget %> € </p>
-  <p class="card-text"><%= @project.time_frame %> weeks </p>
-  <p class="card-text"> Sustainability <%= @project.sustainability %></p>
+  <div class="card-project-text">
+    
+    <p class="card-text"><%= @project.description %></p>
+    <p class="card-text"><%= @project.room %></p>
+    <p class="card-text"><%= @project.address %></p>
+    <p class="card-text"><%= @project.budget %> € </p>
+    <p class="card-text"><%= @project.time_frame %> weeks </p>
+    <% if @project.sustainability%>
+      <p class="card-text"> Sustainable contractors preferred </p>
+    <% end %>
+  </div>
 </div>
-
 
 <!-- display all the information about offers --> 
 
@@ -39,14 +42,15 @@
     <% end %>
   </ul>
 <% else %>
+
   <p><strong>Offers</strong></p>
-  <p><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
+  <p class="btn btn-success"><%= link_to "Create new Offer", new_project_offer_path(@project) %></p>
 
   <ul class="list-group">
     <% @project.offers.each do |offer| %>
       <li class="list-group-item"><%= offer.comment %>
 
-         <% if @project.user == current_user %>
+        <% if @project.user == current_user %>
 
           <p class="btn btn-success"><%= link_to "Accept Offer", edit_project_offer_path(offer) %></p>
           <% end %>
@@ -61,10 +65,7 @@
   </ul>
 <% end %>
 
-
-
   <br>
-
 
  <% if @project.user == current_user %>
 <p class="btn btn-success"><%= link_to "Delete project", project_path(@project),
