@@ -1,3 +1,8 @@
+.card-project {
+  height: 500px;
+  margin-bottom: 32px;
+}
+
 .card-project-image {
   background-size: cover;
   background-position: center;
@@ -9,16 +14,20 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-project-text {
-  height: 300px;
+  height: 200px;
   justify-content: center;
   background-color: white;
   color: black;
-  font-size: 24px;
+  font-size: 12px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  margin-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 24px;
+  line-height: 1em;
+  border-radius: 0px 0px 5px 5px
 }
